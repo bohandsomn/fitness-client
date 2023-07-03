@@ -1,0 +1,42 @@
+{
+    "usesTypeScript": true,
+    "usesCssModule": false,
+    "cssPreprocessor": "styl",
+    "testLibrary": "Testing Library",
+    "usesStyledComponents": false,
+    "component": {
+        "default": {
+            "path": "src/shared/ui",
+            "withStyle": false,
+            "withTest": true,
+            "withStory": false,
+            "withLazy": false,
+            "withType": true,
+            "withPublicApi": true,
+            "withStories": true,
+            "withHook": true,
+            "customTemplates": {
+                "component": "src/shared/generate/templates/component/TemplateName.tsx",
+                "type": "src/shared/generate/templates/component/type.ts",
+                "test": "src/shared/generate/templates/component/TemplateName.spec.tsx",
+                "publicApi": "src/shared/generate/templates/component/index.ts",
+                "stories": "src/shared/generate/templates/component/TemplateName.stories.tsx",
+                "hook": "src/shared/generate/templates/component/useTemplateName.ts"
+            }
+        },
+        "api": {
+            "path": "src/shared/api",
+            "withComponent": false,
+            "withPublicApi": true,
+            "withType": true,
+            "withDto": true,
+            "withApi": true,
+            "customTemplates": {
+                "dto": "src/shared/generate/templates/api/dto/index.ts",
+                "publicApi": "src/shared/generate/templates/api/index.ts",
+                "api": "src/shared/generate/templates/api/templateName.ts",
+                "type": "src/shared/generate/templates/api/type.ts"
+            }
+        }
+    }
+}
