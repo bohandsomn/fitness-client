@@ -1,13 +1,12 @@
 import { Exception } from '../../../exception'
 import { tokenLocalStorage } from '../../../storage'
 import { ExceptionErrorResponseDto, ValidationErrorResponseDto } from '../../dto'
-import { UserTokenDto } from '../dto/userToken.dto'
-import { IUserPayloadDto } from '../type/userPayload.dto'
+import { UserTokenDto, UserPayloadDto } from '../dto'
 
 export async function userTokenToUser<Property extends string>(
     data: unknown
 ): Promise<
-    IUserPayloadDto |
+    UserPayloadDto |
     ValidationErrorResponseDto<Property> |
     ExceptionErrorResponseDto
 > {

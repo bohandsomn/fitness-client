@@ -3,32 +3,31 @@ import { HttpBuilder, INetworkHttp } from '../../network'
 import { ExceptionErrorResponseDto, ValidationErrorResponseDto } from '../dto'
 import { RelativePath } from '../constants'
 import { userTokenToUser } from './mapper'
-import { IAuthApi, ILogInDto, IRegisterDto } from './type'
-import { IUserPayloadDto } from './type/userPayload.dto'
-import { UserTokenDto } from './dto/userToken.dto'
+import { IAuthApi } from './type'
+import { UserPayloadDto, UserTokenDto, LogInDto, RegisterDto } from './dto'
 
 class AuthApi implements IAuthApi {
     constructor(
         private readonly http: INetworkHttp
     ) { }
 
-    async register(dto: IRegisterDto): Promise<IUserPayloadDto | ExceptionErrorResponseDto | ValidationErrorResponseDto<keyof IRegisterDto>> {
-        const response = await this.http.post<IRegisterDto, UserTokenDto>({
+    async register(dto: RegisterDto): Promise<UserPayloadDto | ExceptionErrorResponseDto | ValidationErrorResponseDto<keyof RegisterDto>> {
+        const response = await this.http.post<RegisterDto, UserTokenDto>({
             body: dto,
             relativePath: 'register',
         })
         return userTokenToUser(response)
     }
 
-    async logIn(dto: ILogInDto): Promise<IUserPayloadDto | ExceptionErrorResponseDto | ValidationErrorResponseDto<keyof ILogInDto>> {
-        const response = await this.http.post<ILogInDto, UserTokenDto>({
+    async logIn(dto: LogInDto): Promise<UserPayloadDto | ExceptionErrorResponseDto | ValidationErrorResponseDto<keyof LogInDto>> {
+        const response = await this.http.post<LogInDto, UserTokenDto>({
             body: dto,
             relativePath: 'log-in',
         })
         return userTokenToUser(response)
     }
 
-    async autoLogIn(): Promise<IUserPayloadDto | ExceptionErrorResponseDto> {
+    async autoLogIn(): Promise<UserPayloadDto | ExceptionErrorResponseDto> {
         const response = await this.http.get<null, UserTokenDto>({
             body: null,
             relativePath: 'auto-log-in',

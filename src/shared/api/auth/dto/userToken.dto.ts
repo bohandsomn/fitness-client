@@ -1,9 +1,9 @@
 import { isUserDifficulty, isUserGender } from '../../lib'
-import { IUserPayloadDto } from '../type/userPayload.dto'
+import { UserPayloadDto } from './userPayload.dto'
 
 export class UserTokenDto {
     constructor(
-        public readonly user: IUserPayloadDto,
+        public readonly user: UserPayloadDto,
         public readonly accessToken: string,
     ) { }
 
