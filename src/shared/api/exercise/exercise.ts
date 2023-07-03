@@ -3,20 +3,21 @@ import { ExerciseDto, GetExerciseDto, GetExercisesDto, ExercisePayloadDto } from
 import { RelativePath } from '../constants'
 import { apiUrl } from '../../config'
 import { HttpBuilder, INetworkHttp } from '../../network'
+import { ExceptionErrorResponseDto } from '../dto'
 
 class ExerciseApi implements IExerciseApi {
     constructor(
         private readonly http: INetworkHttp
     ) { }
 
-    async getExercise(dto: GetExerciseDto): Promise<ExerciseDto> {
+    async getExercise(dto: GetExerciseDto): Promise<ExerciseDto | ExceptionErrorResponseDto> {
         return this.http.get({
             body: null,
             relativePath: dto.exerciseId.toString()
         })
     }
 
-    async getExercises(dto?: GetExercisesDto): Promise<ExercisePayloadDto[]> {
+    async getExercises(dto?: GetExercisesDto): Promise<ExercisePayloadDto[] | ExceptionErrorResponseDto> {
         return this.http.get({
             body: null,
             relativePath: '',
