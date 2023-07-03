@@ -70,6 +70,7 @@ export class Http implements INetworkHttp {
             if (response instanceof Error) {
                 throw response
             }
+            console.log({ response: JSON.stringify(response.data, null, 4) })
             return response.data
         } catch (error) {
             console.log({ data: JSON.stringify(error, null, 4) })
