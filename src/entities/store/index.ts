@@ -1,4 +1,4 @@
 export * from './store'
-export * from './provider'
+export * from './providers'
 export * from './lib'
 export * from './type'
