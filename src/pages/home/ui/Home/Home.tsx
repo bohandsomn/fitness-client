@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View } from 'native-base'
 import { IHomeProps } from './type'
 
 export const Home: FC<IHomeProps> = () => {
