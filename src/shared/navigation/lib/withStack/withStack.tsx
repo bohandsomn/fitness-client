@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { IWithStackOptions } from './type'
-import Stack from '../stack'
+import Stack from '../../stack'
 
 export const withStack = <Props extends {}>(
     Page: FC<Props>,
