@@ -10,7 +10,7 @@ type IUseNavigationResult = ReturnType<
     >
 >
 
-export class Navigation implements INavigation {
+export class Navigation<Route extends string> implements INavigation<Route> {
     constructor(
         private readonly navigation: IUseNavigationResult
     ) { }
