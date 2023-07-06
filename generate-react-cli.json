@@ -1,27 +1,26 @@
 {
     "usesTypeScript": true,
     "usesCssModule": false,
-    "cssPreprocessor": "styl",
-    "testLibrary": "Testing Library",
+    "cssPreprocessor": "css",
+    "testLibrary": "None",
     "usesStyledComponents": false,
     "component": {
         "default": {
             "path": "src/shared/ui",
-            "withStyle": false,
-            "withTest": true,
-            "withStory": false,
-            "withLazy": false,
-            "withType": true,
+            "withComponent": true,
             "withPublicApi": true,
-            "withStories": true,
+            "withStory": true,
             "withHook": true,
+            "withType": true,
+            "withStyle": false,
+            "withTest": false,
+            "withLazy": false,
             "customTemplates": {
-                "component": "src/shared/generate/templates/component/TemplateName.tsx",
-                "type": "src/shared/generate/templates/component/type.ts",
-                "test": "src/shared/generate/templates/component/TemplateName.spec.tsx",
-                "publicApi": "src/shared/generate/templates/component/index.ts",
-                "stories": "src/shared/generate/templates/component/TemplateName.stories.tsx",
-                "hook": "src/shared/generate/templates/component/useTemplateName.ts"
+                "publicApi": "src/shared/generate/templates/ui/index.ts",
+                "component": "src/shared/generate/templates/ui/TemplateName.tsx",
+                "story": "src/shared/generate/templates/ui/TemplateName.stories.tsx",
+                "hook": "src/shared/generate/templates/ui/useTemplateName.ts",
+                "type": "src/shared/generate/templates/ui/type.ts"
             }
         },
         "api": {
