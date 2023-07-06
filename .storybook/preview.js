@@ -1,5 +1,5 @@
 import { StoreProvider } from '../src/entities'
-import { NavigationProvider, UiProvider } from '../src/shared'
+import { Container, NavigationProvider, UiProvider } from '../src/shared'
 
 export const parameters = {
   controls: {
@@ -15,7 +15,9 @@ export const decorators = [
     <StoreProvider>
       <UiProvider>
         <NavigationProvider>
-          <Story />
+          <Container>
+            <Story />
+          </Container>
         </NavigationProvider>
       </UiProvider>
     </StoreProvider>

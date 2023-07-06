@@ -47,6 +47,7 @@ try {
 
 const getStories = () => {
   return {
+    "./src/entities/auth/ui/Welcome/Welcome.stories.tsx": require("../src/entities/auth/ui/Welcome/Welcome.stories.tsx"),
     "./src/shared/generate/templates/ui/TemplateName.stories.tsx": require("../src/shared/generate/templates/ui/TemplateName.stories.tsx"),
     "./src/shared/ui/AppButton/AppButton.stories.tsx": require("../src/shared/ui/AppButton/AppButton.stories.tsx"),
   };
