@@ -2,7 +2,7 @@ import React from 'react'
 import { Container } from './Container'
 
 const ContainerMeta = {
-    title: 'Container',
+    title: 'Shared/Container',
     component: Container,
     decorators: [(Story: typeof Container) => <Story />],
 }
