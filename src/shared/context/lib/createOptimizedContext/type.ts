@@ -3,7 +3,11 @@ import { FC, PropsWithChildren } from 'react'
 export interface ICreateOptimizedContextResult<T> {
     Provider: FC<IProviderProps<T>>
     useStateSelector: <Result extends unknown>(selector: (state: T) => Result) => Result
-    useUpdate: IUseUpdate<T>
+    useStateUpdate: IUseUpdate<T>
+}
+
+export interface ICreateOptimizedContext {
+    name?: string
 }
 
 export interface IProviderProps<T> extends PropsWithChildren {

@@ -1,7 +1,7 @@
 import { IMiniStore } from './type'
 
 export class MiniStore<T> implements IMiniStore<T> {
-    private readonly subscriptions: Set<() => void> = new Set<() => void>()
+    private readonly subscriptions: Set<() => void> = new Set()
 
     constructor(
         private state: T
@@ -11,9 +11,9 @@ export class MiniStore<T> implements IMiniStore<T> {
         return this.state
     }
 
-    updateState(partialNewState: Partial<T>): void {
-        this.state = { ...this.state, ...partialNewState }
-        this.subscriptions.forEach((cb) => cb())
+    updateState(state: Partial<T>): void {
+        this.state = { ...this.state, ...state }
+        this.subscriptions.forEach((callback) => callback())
     }
 
     subscribe(callback: () => void): () => void {

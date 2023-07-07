@@ -9,70 +9,73 @@ import {
     FC,
 } from 'react'
 import {
+    ICreateOptimizedContext,
     ICreateOptimizedContextResult,
     IProviderProps,
-    IUseUpdate,
+    IUseUpdate as IUseStateUpdate,
 } from './type'
 import { IMiniStore, MiniStore } from '../miniStore'
 import { Exception } from '../../../exception'
 
-export function createOptimizedContext<T>(): ICreateOptimizedContextResult<T> {
+export function createOptimizedContext<T>({
+    name = '',
+}: ICreateOptimizedContext = {}): ICreateOptimizedContextResult<T> {
     const Context = createContext<IMiniStore<T> | null>(null)
     const Provider: FC<IProviderProps<T>> = ({ initialState, children }) => {
-        const store = useMemo(
-            (): IMiniStore<T> => new MiniStore(initialState),
+        const store = useMemo<IMiniStore<T>>(
+            () => new MiniStore(initialState),
             [],
         )
         return <Context.Provider value={store}>{children}</Context.Provider>
     }
 
-    const useStore = () => {
+    const useStoreContext = () => {
         const store = useContext(Context)
         if (!store) {
             throw new Exception(
-                'Can not use `useStore` outside of the `Provider`',
+                `Can not use 'useStoreContext' outside of the '${name}Provider'`,
             )
         }
         return store
     }
 
-    const useStateSelector = <Result extends any>(
+    const useStateUpdate: IUseStateUpdate<T> = () => {
+        const store = useStoreContext()
+        return store.updateState.bind(store)
+    }
+
+    const useStateSelector = <Result extends unknown>(
         selector: (state: T) => Result,
     ): Result => {
-        const store = useStore()
-        const [state, setState] = useState(() => selector(store.getState()))
+        const store = useStoreContext()
+        const [result, setResult] = useState(() => selector(store.getState()))
         const selectorRef = useRef(selector)
-        const stateRef = useRef(state)
+        const resultRef = useRef(result)
 
         useLayoutEffect(() => {
             selectorRef.current = selector
-            stateRef.current = state
+            resultRef.current = result
         })
 
         useEffect(() => {
             const unsubscribe = store.subscribe(() => {
-                const state = selectorRef.current(store.getState())
-                if (stateRef.current === state) {
+                const result = selectorRef.current(store.getState())
+                if (resultRef.current === result) {
                     return
                 }
-                setState(state)
+                setResult(result)
             })
             return () => {
                 unsubscribe()
             }
         }, [store])
 
-        return state
-    }
-
-    const useUpdate: IUseUpdate<T> = () => {
-        const store = useStore()
-        return store.updateState
+        return result
     }
 
     return {
         Provider,
         useStateSelector,
-        useUpdate,
+        useStateUpdate,
     }
 }
