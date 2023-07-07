@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { Text, View } from 'native-base'
-import { ITemplateName } from './type'
+import { ITemplateNameProps } from './type'
 import { useTemplateName } from './useTemplateName'
 
-export const TemplateName: FC<ITemplateName> = ({ children }) => {
+export const TemplateName: FC<ITemplateNameProps> = ({ children }) => {
     const {} = useTemplateName()
     return (
         <View>
