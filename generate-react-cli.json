@@ -36,6 +36,24 @@
                 "api": "src/shared/generate/templates/api/templateName.ts",
                 "type": "src/shared/generate/templates/api/type.ts"
             }
+        },
+        "provider": {
+            "path": "src",
+            "withComponent": false,
+            "withContext": true,
+            "withPublicApi": true,
+            "withProvider": true,
+            "withType": true,
+            "withInitialHook": true,
+            "withUpdateHook": true,
+            "customTemplates": {
+                "context": "src/shared/generate/templates/provider/context.ts",
+                "publicApi": "src/shared/generate/templates/provider/index.ts",
+                "provider": "src/shared/generate/templates/provider/TemplateNameProvider.tsx",
+                "type": "src/shared/generate/templates/provider/type.ts",
+                "initialHook": "src/shared/generate/templates/provider/useInitialTemplateName.ts",
+                "updateHook": "src/shared/generate/templates/provider/useTemplateNameStateUpdate.ts"
+            }
         }
     }
 }

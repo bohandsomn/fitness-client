@@ -11,6 +11,7 @@
         "devtools": "npx react-devtools",
         "cli:api": "npx generate-react-cli c --type=api ",
         "cli:ui": "npx generate-react-cli c --type=default ",
+        "cli:provider": "npx generate-react-cli c --type=provider ",
         "storybook-generate": "sb-rn-get-stories",
         "storybook-watch": "sb-rn-watcher"
     },
