@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-export interface IWelcome {
+export interface IWelcomeProps {
     logInButton: ReactNode
     createAnAccountButton: ReactNode
 }
