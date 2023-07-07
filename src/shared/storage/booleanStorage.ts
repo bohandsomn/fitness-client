@@ -2,20 +2,23 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { IStorage } from './type'
 import { Exception } from '../exception'
 
-export class LocalStorage<T extends string = string> implements IStorage<T> {
+export class BooleanStorage implements IStorage<`${boolean}`> {
     constructor(
         private readonly key: string
     ) { }
 
-    async get(): Promise<T> {
+    async get(): Promise<`${boolean}`> {
         const value = await AsyncStorage.getItem(this.key)
         if (typeof value !== 'string') {
             throw new Exception(`Value with key ${this.key} is not a string`)
         }
-        return value as T
+        if (value !== 'true' && value !== 'false') {
+            throw new Exception(`Value with key ${this.key} is not a boolean`)
+        }
+        return value
     }
 
-    async save(value: T): Promise<void> {
+    async save(value: `${boolean}`): Promise<void> {
         await AsyncStorage.setItem(this.key, value)
     }
 

@@ -1,3 +1,5 @@
 export * from './localStorage'
+export * from './booleanStorage'
 export * from './tokenLocalStorage'
+export * from './welcomeBooleanStorage'
 export * from './type'
