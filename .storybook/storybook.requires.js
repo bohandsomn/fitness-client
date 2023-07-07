@@ -48,8 +48,12 @@ try {
 const getStories = () => {
   return {
     "./src/entities/auth/ui/Welcome/Welcome.stories.tsx": require("../src/entities/auth/ui/Welcome/Welcome.stories.tsx"),
+    "./src/features/auth/ui/CreateAccount/CreateAccount.stories.tsx": require("../src/features/auth/ui/CreateAccount/CreateAccount.stories.tsx"),
+    "./src/features/auth/ui/LogIn/LogIn.stories.tsx": require("../src/features/auth/ui/LogIn/LogIn.stories.tsx"),
     "./src/shared/generate/templates/ui/TemplateName.stories.tsx": require("../src/shared/generate/templates/ui/TemplateName.stories.tsx"),
     "./src/shared/ui/AppButton/AppButton.stories.tsx": require("../src/shared/ui/AppButton/AppButton.stories.tsx"),
+    "./src/shared/ui/Container/Container.stories.tsx": require("../src/shared/ui/Container/Container.stories.tsx"),
+    "./src/widgets/auth/ui/Welcome/Welcome.stories.tsx": require("../src/widgets/auth/ui/Welcome/Welcome.stories.tsx"),
   };
 };
 
