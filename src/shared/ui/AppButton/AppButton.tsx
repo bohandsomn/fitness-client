@@ -13,7 +13,7 @@ export const AppButton: FC<IAppButton> = ({
     return (
         <Button
             backgroundColor={isDark ? 'black' : 'white'}
-            width={isWide ? 'container' : 'xs'}
+            alignSelf={isWide ? null : 'flex-start'}
             borderWidth={isDark ? null : 1}
             borderStyle={isDark ? null : 'solid'}
             {...props}
