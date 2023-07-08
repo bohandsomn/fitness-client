@@ -1,4 +1,5 @@
 import { FC, PropsWithChildren } from 'react'
+import { IMiniStore } from '../miniStore'
 
 export interface ICreateOptimizedContextResult<T> {
     Provider: FC<IProviderProps<T>>
@@ -14,4 +15,4 @@ export interface IProviderProps<T> extends PropsWithChildren {
     initialState: T
 }
 
-export type IUseUpdate<T> = () => (state: Partial<T>) => void
+export type IUseUpdate<T> = () => IMiniStore<T>['updateState']
