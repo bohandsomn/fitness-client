@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { initialPage, pages } from '@/pages'
-import { StoreProvider } from '@/entities'
+import { AutoLogInProvider, StoreProvider, WelcomeProvider } from '@/entities'
 import { NavigationProvider, Navigator, UiProvider } from '@/shared'
 
 export const AppProvider: FC = () => {
@@ -8,7 +8,14 @@ export const AppProvider: FC = () => {
         <StoreProvider>
             <UiProvider>
                 <NavigationProvider>
-                    <Navigator pages={pages} initialPage={initialPage} />
+                    <WelcomeProvider>
+                        <AutoLogInProvider>
+                            <Navigator
+                                pages={pages}
+                                initialPage={initialPage}
+                            />
+                        </AutoLogInProvider>
+                    </WelcomeProvider>
                 </NavigationProvider>
             </UiProvider>
         </StoreProvider>

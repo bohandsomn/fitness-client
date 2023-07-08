@@ -47,12 +47,19 @@ try {
 
 const getStories = () => {
   return {
+    "./src/entities/auth/ui/LogIn/LogIn.stories.tsx": require("../src/entities/auth/ui/LogIn/LogIn.stories.tsx"),
     "./src/entities/auth/ui/Welcome/Welcome.stories.tsx": require("../src/entities/auth/ui/Welcome/Welcome.stories.tsx"),
     "./src/features/auth/ui/CreateAccount/CreateAccount.stories.tsx": require("../src/features/auth/ui/CreateAccount/CreateAccount.stories.tsx"),
+    "./src/features/auth/ui/CreateAccountLink/CreateAccountLink.stories.tsx": require("../src/features/auth/ui/CreateAccountLink/CreateAccountLink.stories.tsx"),
+    "./src/features/auth/ui/EmailLogInField/EmailLogInField.stories.tsx": require("../src/features/auth/ui/EmailLogInField/EmailLogInField.stories.tsx"),
     "./src/features/auth/ui/LogIn/LogIn.stories.tsx": require("../src/features/auth/ui/LogIn/LogIn.stories.tsx"),
+    "./src/features/auth/ui/LogInSubmit/LogInSubmit.stories.tsx": require("../src/features/auth/ui/LogInSubmit/LogInSubmit.stories.tsx"),
+    "./src/features/auth/ui/PasswordLogInField/PasswordLogInField.stories.tsx": require("../src/features/auth/ui/PasswordLogInField/PasswordLogInField.stories.tsx"),
     "./src/shared/generate/templates/ui/TemplateName.stories.tsx": require("../src/shared/generate/templates/ui/TemplateName.stories.tsx"),
     "./src/shared/ui/AppButton/AppButton.stories.tsx": require("../src/shared/ui/AppButton/AppButton.stories.tsx"),
+    "./src/shared/ui/AppInput/AppInput.stories.tsx": require("../src/shared/ui/AppInput/AppInput.stories.tsx"),
     "./src/shared/ui/Container/Container.stories.tsx": require("../src/shared/ui/Container/Container.stories.tsx"),
+    "./src/widgets/auth/ui/LogIn/LogIn.stories.tsx": require("../src/widgets/auth/ui/LogIn/LogIn.stories.tsx"),
     "./src/widgets/auth/ui/Welcome/Welcome.stories.tsx": require("../src/widgets/auth/ui/Welcome/Welcome.stories.tsx"),
   };
 };

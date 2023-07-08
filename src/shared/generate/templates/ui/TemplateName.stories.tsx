@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { TemplateName } from './TemplateName'
 
 const TemplateNameMeta = {
     title: 'TemplateName',
     component: TemplateName,
-    decorators: [(Story: typeof TemplateName) => <Story />],
+    decorators: [(Story: FC) => <Story />],
 }
 
 export default TemplateNameMeta

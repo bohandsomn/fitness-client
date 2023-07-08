@@ -3,7 +3,7 @@ import { Welcome } from './Welcome'
 import { AppButton, AuthConst } from '@/shared'
 
 const WelcomeMeta = {
-    title: 'Entity/Auth/Welcome',
+    title: 'Entities/Auth/Welcome',
     component: Welcome,
     decorators: [(Story: FC) => <Story />],
 }

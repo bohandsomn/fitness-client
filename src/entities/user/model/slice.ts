@@ -29,6 +29,7 @@ const user = createSlice({
             .addCase(registerUserAction.rejected, (state, action) => {
                 state.data = null
                 state.error = action.payload as IErrorMessage
+                state.isLoading = false
             })
 
             .addCase(logInUserAction.pending, (state) => {
@@ -44,6 +45,7 @@ const user = createSlice({
             .addCase(logInUserAction.rejected, (state, action) => {
                 state.data = null
                 state.error = action.payload as IErrorMessage
+                state.isLoading = false
             })
 
             .addCase(autoLogInUserAction.pending, (state) => {
@@ -59,6 +61,7 @@ const user = createSlice({
             .addCase(autoLogInUserAction.rejected, (state, action) => {
                 state.data = null
                 state.error = action.payload as IErrorMessage
+                state.isLoading = false
             })
 
             .addCase(updateUserAction.pending, (state) => {
@@ -74,6 +77,7 @@ const user = createSlice({
             .addCase(updateUserAction.rejected, (state, action) => {
                 state.data = null
                 state.error = action.payload as IErrorMessage
+                state.isLoading = false
             })
 
             .addCase(logOutUserAction.pending, (state) => {
@@ -89,6 +93,7 @@ const user = createSlice({
             .addCase(logOutUserAction.rejected, (state, action) => {
                 state.data = null
                 state.error = action.payload as IErrorMessage
+                state.isLoading = false
             })
     }
 })
