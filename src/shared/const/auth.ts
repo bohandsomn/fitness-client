@@ -4,6 +4,8 @@ export enum AuthConst {
     DO_NOT_HAVE_AN_ACCOUNT = 'Don\'t have an account?',
     EMAIL = 'Email',
     PASSWORD = 'Password',
+    SELECT_YOUR_GENDER = 'Select your gender',
+    CONFIRM = 'Confirm',
 }
 
 export enum AuthException {
