@@ -6,9 +6,9 @@ import { useNextStep } from './useNextStep'
 export const NextStep: FC<INextStepProps> = ({
     children = StepConst.NEXT_STEP,
 }) => {
-    const { handlePress } = useNextStep()
+    const { handlePress, isEnd } = useNextStep()
     return (
-        <AppButton isDark onPress={handlePress}>
+        <AppButton isDark isDisabled={isEnd} onPress={handlePress}>
             {children}
         </AppButton>
     )
