@@ -11,10 +11,11 @@ export const WithStepController: FC<IWithStepControllerProps> = ({
     nextStepLabel,
     handleConfirm,
     children,
+    ...props
 }) => {
     const {} = useWithStepController()
     return (
-        <View>
+        <View {...props}>
             <StepProgress
                 isShowProgressInNumbers
                 rightElement={rightStepProgressElement}

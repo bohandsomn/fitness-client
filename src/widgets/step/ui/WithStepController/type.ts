@@ -1,6 +1,9 @@
-import { ReactElement, PropsWithChildren } from 'react'
+import { View } from 'native-base'
+import { ReactElement } from 'react'
 
-export interface IWithStepControllerProps extends PropsWithChildren {
+type IViewProps = NonNullable<typeof View.defaultProps>
+
+export interface IWithStepControllerProps extends IViewProps {
     rightStepProgressElement?: ReactElement
     previousStepLabel?: ReactElement
     nextStepLabel?: ReactElement
