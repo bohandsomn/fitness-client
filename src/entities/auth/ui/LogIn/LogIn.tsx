@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import { View, FormControl, Image, Text } from 'native-base'
+import { View, FormControl, Text } from 'native-base'
 import { ILogInProps } from './type'
 import { useLogIn } from './useLogIn'
-import { AuthConst } from '@/shared'
+import { AuthConst, LogInLocalImage } from '@/shared'
 
 export const LogIn: FC<ILogInProps> = ({
     emailField,
@@ -13,11 +13,7 @@ export const LogIn: FC<ILogInProps> = ({
     const {} = useLogIn()
     return (
         <FormControl>
-            <Image
-                source={require('@/shared/assets/images/log-in.png')}
-                marginLeft="auto"
-                marginRight="auto"
-            />
+            <LogInLocalImage marginLeft="auto" marginRight="auto" />
             <View marginTop="24px">{emailField}</View>
             <View marginTop="16px">{passwordField}</View>
             <View marginTop="112px">{logInSubmitButton}</View>

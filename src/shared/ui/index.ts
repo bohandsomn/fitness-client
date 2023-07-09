@@ -1,4 +1,5 @@
 export * from './providers'
+export * from './images'
 export * from './AppButton'
 export * from './AppInput'
 export * from './Container'

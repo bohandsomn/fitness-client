@@ -1,8 +1,8 @@
 import { FC } from 'react'
-import { Image, ScrollView, Text, View, FormControl } from 'native-base'
+import { Text, View, FormControl } from 'native-base'
 import { IWelcomeProps } from './type'
 import { useWelcome } from './useWelcome'
-import { AppConst } from '@/shared'
+import { AppConst, AuthWelcomeLocalImage } from '@/shared'
 
 export const Welcome: FC<IWelcomeProps> = ({
     logInButton,
@@ -11,10 +11,7 @@ export const Welcome: FC<IWelcomeProps> = ({
     const {} = useWelcome()
     return (
         <FormControl>
-            <Image
-                source={require('@/shared/assets/images/auth-welcome.png')}
-                width="full"
-            />
+            <AuthWelcomeLocalImage width="full" />
             <Text fontSize="22" textAlign="center" marginTop="4">
                 Welcome to the {AppConst.APP_NAME}
             </Text>
