@@ -9,6 +9,7 @@ export const WithStepController: FC<IWithStepControllerProps> = ({
     rightStepProgressElement,
     previousStepLabel,
     nextStepLabel,
+    handleConfirm,
     children,
 }) => {
     const {} = useWithStepController()
@@ -21,7 +22,9 @@ export const WithStepController: FC<IWithStepControllerProps> = ({
             {children}
             <Row justifyContent="space-between">
                 <PreviousStep>{previousStepLabel}</PreviousStep>
-                <NextStep>{nextStepLabel}</NextStep>
+                <NextStep handleConfirm={handleConfirm}>
+                    {nextStepLabel}
+                </NextStep>
             </Row>
         </View>
     )

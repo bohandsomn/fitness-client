@@ -13,6 +13,11 @@ const WithStepControllerMeta = {
             </StepProvider>
         ),
     ],
+    argTypes: {
+        handleConfirm: {
+            action: 'handleConfirm',
+        },
+    },
 }
 
 export default WithStepControllerMeta
@@ -22,5 +27,11 @@ export const Basic = {}
 export const WithChildren = {
     args: {
         children: <Text>Lorem ipsum dolor</Text>,
+    },
+}
+
+export const WithNextStepLabel = {
+    args: {
+        nextStepLabel: 'Next step label',
     },
 }

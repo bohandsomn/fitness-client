@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { NextStep } from './NextStep'
 import { StepProvider } from '../../../../entities/step/providers'
+import { Text } from 'native-base'
 
 const NextStepMeta = {
     title: 'Features/Step/NextStep',
@@ -12,6 +13,11 @@ const NextStepMeta = {
             </StepProvider>
         ),
     ],
+    argTypes: {
+        handleConfirm: {
+            action: 'handleConfirm',
+        },
+    },
 }
 
 export default NextStepMeta
@@ -36,4 +42,30 @@ export const EndStep = {
             </StepProvider>
         ),
     ],
+}
+
+export const PenultimateStep = {
+    decorators: [
+        (Story: FC) => (
+            <StepProvider data={{ step: 98, minStep: 0, maxStep: 99 }}>
+                <Story />
+            </StepProvider>
+        ),
+    ],
+    args: {
+        children: <Text>Confirm</Text>,
+    },
+}
+
+export const EndStepWithChildren = {
+    decorators: [
+        (Story: FC) => (
+            <StepProvider data={{ step: 99, minStep: 0, maxStep: 99 }}>
+                <Story />
+            </StepProvider>
+        ),
+    ],
+    args: {
+        children: <Text>Confirm</Text>,
+    },
 }
