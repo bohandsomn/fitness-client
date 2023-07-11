@@ -14,7 +14,7 @@ export const AppRadio: FC<IAppRadioProps> = ({ Parent, ...props }) => {
             {options.map(({ publicValue, privateValue }) =>
                 Parent ? (
                     <Parent key={privateValue} value={privateValue}>
-                        <Radio value={privateValue}>
+                        <Radio value={privateValue} colorScheme="black">
                             <Text marginLeft="12px" fontSize="14px" bold>
                                 {publicValue}
                             </Text>
