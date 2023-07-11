@@ -4,9 +4,9 @@ import { IStepOptimizedContext } from '@/entities'
 
 export const useCreateUser = () => {
     const stepInitialData = useMemo((): IStepOptimizedContext => ({
-        step: CreateUserQueue.SELECT_GENDER,
-        minStep: CreateUserQueue.SELECT_GENDER,
-        maxStep: CreateUserQueue.ENTER_BIRTHDAY,
+        step: CreateUserQueue.ENTER_NAME_AND_EMAIL,
+        minStep: CreateUserQueue.ENTER_NAME_AND_EMAIL,
+        maxStep: CreateUserQueue.ENTER_GOAL_DATE,
     }), [])
     return {
         stepInitialData,
