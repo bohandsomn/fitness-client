@@ -1,14 +1,9 @@
 import { FC } from 'react'
-import { Text, View } from 'native-base'
+import { EnterNameAndEmail } from '@/widgets'
 import { ICreateUserNameAndEmailProps } from './type'
 import { useCreateUserNameAndEmail } from './useCreateUserNameAndEmail'
 
-export const CreateUserNameAndEmail: FC<ICreateUserNameAndEmailProps> = ({ children }) => {
+export const CreateUserNameAndEmail: FC<ICreateUserNameAndEmailProps> = () => {
     const {} = useCreateUserNameAndEmail()
-    return (
-        <View>
-            <Text>CreateUserNameAndEmail</Text>
-            {children}
-        </View>
-    )
+    return <EnterNameAndEmail />
 }
