@@ -8,13 +8,7 @@ import { FemaleLocalImage, MaleLocalImage, UserGender } from '@/shared'
 const AppRadioMeta = {
     title: 'Entities/Management/AppRadio',
     component: AppRadio,
-    decorators: [
-        (Story: FC) => (
-            <SelectGenderProvider>
-                <Story />
-            </SelectGenderProvider>
-        ),
-    ],
+    decorators: [(Story: FC) => <Story />],
 }
 
 export default AppRadioMeta

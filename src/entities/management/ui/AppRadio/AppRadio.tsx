@@ -3,8 +3,14 @@ import { Radio, Text } from 'native-base'
 import { IAppRadioProps } from './type'
 import { useAppRadio } from './useAppRadio'
 
-export const AppRadio: FC<IAppRadioProps> = ({ Parent, ...props }) => {
-    const { value, options, handleChange } = useAppRadio()
+export const AppRadio: FC<IAppRadioProps> = ({
+    Parent,
+    value,
+    options,
+    handleChange,
+    ...props
+}) => {
+    const {} = useAppRadio()
     return (
         <Radio.Group
             value={value || ''}
