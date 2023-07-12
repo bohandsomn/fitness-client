@@ -6,7 +6,7 @@ export const useCreateAccount = () => {
     const { check } = useWelcomeStateUpdate()
     const navigation = useNavigation()
     const handlePress = useCallback(() => {
-        navigation.goTo(PageNames.CREATE_ACCOUNT_SELECT_GENDER)
+        navigation.goTo(PageNames.CREATE_ACCOUNT)
         check()
     }, [check, navigation])
     return {

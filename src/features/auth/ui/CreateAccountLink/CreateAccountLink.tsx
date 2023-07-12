@@ -7,7 +7,7 @@ import { Text } from 'native-base'
 export const CreateAccountLink: FC<ICreateAccountLinkProps> = () => {
     const {} = useCreateAccountLink()
     return (
-        <AppLink to={`/${PageNames.CREATE_ACCOUNT_SELECT_GENDER}` as PageNames}>
+        <AppLink to={`/${PageNames.CREATE_ACCOUNT}` as PageNames}>
             <Text bold>{AuthConst.CREATE_AN_ACCOUNT}</Text>
         </AppLink>
     )

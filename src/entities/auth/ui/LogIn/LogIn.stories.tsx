@@ -29,9 +29,7 @@ export const Basic = {
             </AppButton>
         ),
         createAccountLink: (
-            <AppLink
-                to={`/${PageNames.CREATE_ACCOUNT_SELECT_GENDER}` as PageNames}
-            >
+            <AppLink to={`/${PageNames.CREATE_ACCOUNT}` as PageNames}>
                 <Text bold>{AuthConst.CREATE_AN_ACCOUNT}</Text>
             </AppLink>
         ),
