@@ -1,8 +1,9 @@
 import { FC } from 'react'
-import { Center, Text, View } from 'native-base'
+import { View } from 'native-base'
 import { AuthConst } from '@/shared'
 import { IEnterNameAndEmailProps } from './type'
 import { useEnterNameAndEmail } from './useEnterNameAndEmail'
+import { CreateUserContainer } from '../CreateUserContainer'
 
 export const EnterNameAndEmail: FC<IEnterNameAndEmailProps> = ({
     nameField,
@@ -10,16 +11,9 @@ export const EnterNameAndEmail: FC<IEnterNameAndEmailProps> = ({
 }) => {
     const {} = useEnterNameAndEmail()
     return (
-        <View>
-            <Center marginTop="42px">
-                <Text bold fontSize="16px">
-                    {AuthConst.ENTER_NAME_AND_EMAIL}
-                </Text>
-            </Center>
+        <CreateUserContainer header={AuthConst.ENTER_NAME_AND_EMAIL}>
             <View marginTop="16px">{nameField}</View>
-            <View marginTop="16px" marginBottom="254px">
-                {emailField}
-            </View>
-        </View>
+            <View marginTop="16px">{emailField}</View>
+        </CreateUserContainer>
     )
 }

@@ -1,3 +1,6 @@
 export * from './Welcome'
 export * from './LogIn'
 export * from './SelectGender'
+export * from './EnterNameAndEmail'
+export * from './EnterPasswordAndConfirm'
+export * from './CreateUserContainer'

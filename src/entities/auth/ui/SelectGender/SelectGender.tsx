@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { Text, View, Center } from 'native-base'
-import { AppRadio } from '@/entities'
+import { View } from 'native-base'
+import { AppRadio, CreateUserContainer } from '@/entities'
 import {
     AuthConst,
     FemaleLocalImage,
@@ -13,12 +13,7 @@ import { useSelectGender } from './useSelectGender'
 export const SelectGender: FC<ISelectGenderProps> = ({ onChangeGender }) => {
     const {} = useSelectGender({ onChangeGender })
     return (
-        <View>
-            <Center marginTop="57px">
-                <Text fontSize="16px" bold>
-                    {AuthConst.SELECT_YOUR_GENDER}
-                </Text>
-            </Center>
+        <CreateUserContainer header={AuthConst.SELECT_YOUR_GENDER}>
             <AppRadio
                 name="gender"
                 flexDirection="row"
@@ -45,6 +40,6 @@ export const SelectGender: FC<ISelectGenderProps> = ({ onChangeGender }) => {
                     )
                 }}
             />
-        </View>
+        </CreateUserContainer>
     )
 }
