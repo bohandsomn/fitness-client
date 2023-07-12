@@ -36,9 +36,13 @@ export const useAppAgenda = ({
             today: true,
         },
     }), [currentDate])
+    const items = useMemo(() => ({
+        [currentDate]: [{}] as any
+    }), [currentDate])
     return {
         onDayPress,
         theme,
         markedDates,
+        items,
     }
 }

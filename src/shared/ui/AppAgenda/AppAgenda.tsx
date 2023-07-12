@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { Text, View } from 'native-base'
-import { Agenda, CalendarList } from 'react-native-calendars'
+import { View } from 'native-base'
+import { Agenda } from 'react-native-calendars'
 import { IAppAgendaProps } from './type'
 import { useAppAgenda } from './useAppAgenda'
 
@@ -12,7 +12,7 @@ export const AppAgenda: FC<IAppAgendaProps> = ({
     customHeader,
     children,
 }) => {
-    const { onDayPress, theme, markedDates } = useAppAgenda({
+    const { onDayPress, theme, markedDates, items } = useAppAgenda({
         currentDate,
         onChangeCurrentDate,
     })
@@ -26,7 +26,7 @@ export const AppAgenda: FC<IAppAgendaProps> = ({
                 maxDate={maxDate}
                 customHeader={customHeader}
                 theme={theme}
-                items={{ [currentDate]: [{}] as any }}
+                items={items}
                 renderItem={() => <>{children}</>}
                 renderDay={() => <></>}
             />
