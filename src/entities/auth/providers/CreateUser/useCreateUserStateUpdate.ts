@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { UserDifficulty, UserGender } from '@/shared'
+import { ISODate, UserDifficulty, UserGender } from '@/shared'
 import { useStateUpdate } from './context'
 import { IUseCreateUserStateUpdateResult } from './type'
 
@@ -32,10 +32,10 @@ export const useCreateUserStateUpdate = (): IUseCreateUserStateUpdateResult => {
     const changeHeight = useCallback((height: number) => {
         update({ height })
     }, [update])
-    const changeGoalDate = useCallback((goalDate: Date) => {
+    const changeGoalDate = useCallback((goalDate: ISODate) => {
         update({ goalDate })
     }, [update])
-    const changeBirthday = useCallback((birthday: Date) => {
+    const changeBirthday = useCallback((birthday: ISODate) => {
         update({ birthday })
     }, [update])
     return {

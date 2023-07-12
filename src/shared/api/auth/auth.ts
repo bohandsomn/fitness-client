@@ -2,18 +2,19 @@ import { apiUrl } from '../../config'
 import { HttpBuilder, INetworkHttp } from '../../network'
 import { ExceptionErrorResponseDto, ValidationErrorResponseDto } from '../dto'
 import { RelativePath } from '../constants'
-import { userTokenToUser } from './mapper'
+import { createUserContextToRegister, userTokenToUser } from './mapper'
 import { IAuthApi } from './type'
-import { UserPayloadDto, UserTokenDto, LogInDto, RegisterDto } from './dto'
+import { UserPayloadDto, UserTokenDto, LogInDto, RegisterDto, CreateUserContext } from './dto'
 
 class AuthApi implements IAuthApi {
     constructor(
         private readonly http: INetworkHttp
     ) { }
 
-    async register(dto: RegisterDto): Promise<UserPayloadDto | ExceptionErrorResponseDto | ValidationErrorResponseDto<keyof RegisterDto>> {
+    async register(dto: CreateUserContext): Promise<UserPayloadDto | ExceptionErrorResponseDto | ValidationErrorResponseDto<keyof RegisterDto>> {
+        const body = createUserContextToRegister(dto) as RegisterDto
         const response = await this.http.post<RegisterDto, UserTokenDto>({
-            body: dto,
+            body,
             relativePath: 'register',
         })
         return userTokenToUser(response)
