@@ -6,7 +6,9 @@ import { useSelectGender } from './useSelectGender'
 import { SelectGenderWrapper } from '../SelectGenderWrapper'
 
 export const SelectGender: FC<ISelectGenderProps> = ({ onChangeGender }) => {
-    const {} = useSelectGender({ onChangeGender })
+    const { gender, options, handleChangeGender } = useSelectGender({
+        onChangeGender,
+    })
     return (
         <CreateUserContainer header={AuthConst.SELECT_YOUR_GENDER}>
             <AppRadio
@@ -14,6 +16,9 @@ export const SelectGender: FC<ISelectGenderProps> = ({ onChangeGender }) => {
                 flexDirection="row"
                 justifyContent="space-evenly"
                 Parent={SelectGenderWrapper}
+                value={gender}
+                options={options}
+                handleChange={handleChangeGender}
             />
         </CreateUserContainer>
     )
