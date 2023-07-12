@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import { Text, View, useToast } from 'native-base'
 import {
+    IBroadcastNotificationOptions,
     IGetColorsDto,
     IGetColorsResultDto,
     INotification,
@@ -63,6 +64,30 @@ export class Notification implements INotification {
         return this.notify(adaptedOptions, NotificationType.FAIL)
     }
 
+    broadcast(
+        messages: string[],
+        options?: Partial<IBroadcastNotificationOptions>
+    ): void {
+        const defaultOptions: IBroadcastNotificationOptions = {
+            duration: 2000,
+            placement: Placement.TOP,
+            type: NotificationType.INFO,
+            ...options,
+        }
+        const { textColor, bgColor } = this.getColors({
+            type: defaultOptions.type,
+        })
+        messages.map((message, index) => {
+            setTimeout(() => this.toastService.show({
+                description: message,
+                duration: defaultOptions.duration,
+                placement: defaultOptions.placement,
+                color: textColor,
+                backgroundColor: bgColor,
+            }), defaultOptions.duration * index)
+        })
+    }
+
     close(id: INotificationId) {
         this.toastService.close(id)
     }
@@ -103,7 +128,6 @@ export class Notification implements INotification {
 
     private notify(options: INotificationOptions, type: NotificationType): INotificationId {
         const { textColor, bgColor } = this.getColors({
-            message: options.message,
             type,
         })
         return this.toastService.show({

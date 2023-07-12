@@ -17,6 +17,8 @@ export interface INotification {
     fail(message: string, options: Partial<INotificationOptionsWithoutMessage>): INotificationId
     fail(options: Partial<INotificationOptions>): INotificationId
 
+    broadcast(messages: string[], options?: Partial<IBroadcastNotificationOptions>): void
+
     close(id: INotificationId): void
 }
 
@@ -28,10 +30,15 @@ export interface INotificationOptions {
     placement: Placement
 }
 
+export interface IBroadcastNotificationOptions {
+    duration: number
+    placement: Placement
+    type: NotificationType
+}
+
 export interface INotificationOptionsWithoutMessage extends Omit<INotificationOptions, 'message'> { }
 
 export interface IGetColorsDto {
-    message: ReactNode
     type: NotificationType
 }
 

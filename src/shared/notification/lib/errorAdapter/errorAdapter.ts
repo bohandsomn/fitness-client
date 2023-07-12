@@ -1,11 +1,11 @@
 import { Exception } from '@/shared/exception'
 import { ExceptionErrorResponseDto, ValidationErrorResponseDto } from '../../../api/dto'
 
-export function errorAdapter<Property extends string>(
-    error: ValidationErrorResponseDto<Property> | ExceptionErrorResponseDto
+export function errorAdapter(
+    error: ValidationErrorResponseDto<string> | ExceptionErrorResponseDto
 ): string[] {
     if (ValidationErrorResponseDto.isValidationErrorResponse(error)) {
-        const properties = Object.keys(error.message) as Property[]
+        const properties = Object.keys(error.message)
         const errors = properties
             .map((property): string[] => error.message?.[property] || [])
             .reduce((errors, error) => [...errors, ...error])

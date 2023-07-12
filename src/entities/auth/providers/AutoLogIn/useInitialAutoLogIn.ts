@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react'
 import { autoLogInUserAction, useAppDispatch, useAppSelector } from '@/entities'
-import { PageNames, errorAdapter, useNavigation, useNotification, welcomeBooleanStorage } from '@/shared'
+import { NotificationType, PageNames, errorAdapter, useNavigation, useNotification, welcomeBooleanStorage } from '@/shared'
 import { IAutoLogInOptimizedContext } from './type'
 
 export const useInitialAutoLogIn = (): IAutoLogInOptimizedContext => {
@@ -40,8 +40,7 @@ export const useInitialAutoLogIn = (): IAutoLogInOptimizedContext => {
     useEffect(() => {
         if (user.error) {
             const errors = errorAdapter({ message: user.error as any })
-            const error = errors.join('\n\n')
-            notification.fail(error, { duration: 5000 })
+            notification.broadcast(errors, { type: NotificationType.FAIL })
         }
     }, [user])
 
