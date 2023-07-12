@@ -5,5 +5,16 @@ import { useContainer } from './useContainer'
 
 export const Container: FC<IContainer> = ({ children }) => {
     const {} = useContainer()
-    return <View padding="16px 24px 16px 0px">{children}</View>
+    return (
+        <View
+            height="full"
+            paddingTop="8px"
+            paddingRight="16px"
+            paddingLeft="16px"
+            paddingBottom="32px"
+            backgroundColor="white"
+        >
+            {children}
+        </View>
+    )
 }
