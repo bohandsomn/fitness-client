@@ -10,7 +10,7 @@ export const AppCalendar: FC<IAppCalendarProps> = ({
     maxDate,
     customHeader,
 }) => {
-    const { onDayPress, theme, markedDates } = useAppCalendar({
+    const { onDayPress, theme, markedDates, style } = useAppCalendar({
         onChangeCurrentDate,
         currentDate,
     })
@@ -23,6 +23,7 @@ export const AppCalendar: FC<IAppCalendarProps> = ({
             maxDate={maxDate}
             customHeader={customHeader}
             theme={theme}
+            style={style}
         />
     )
 }

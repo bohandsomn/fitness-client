@@ -1,3 +1,8 @@
+import { useCreateUserStateUpdate } from '@/entities'
+
 export const useCreateUserDifficulty = () => {
-    return {}
+    const { selectDifficulty } = useCreateUserStateUpdate()
+    return {
+        selectDifficulty,
+    }
 }

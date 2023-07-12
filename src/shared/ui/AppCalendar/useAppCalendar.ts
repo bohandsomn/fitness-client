@@ -36,9 +36,14 @@ export const useAppCalendar = ({
             today: true,
         },
     }), [currentDate])
+    const style = useMemo(() => ({
+        borderRadius: 28,
+        height: 375,
+    }), [])
     return {
         onDayPress,
         theme,
         markedDates,
+        style,
     }
 }

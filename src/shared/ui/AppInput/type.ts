@@ -1,3 +1,4 @@
+import { IWithErrors } from '@/shared/lib'
 import { IInputProps } from 'native-base'
 
 export interface IAppInputProps
@@ -6,6 +7,4 @@ export interface IAppInputProps
         'paddingLeft' |
         'paddingTop' |
         'paddingBottom'
-    > {
-    rules?: (() => string | null)[]
-}
+    >, IWithErrors { }

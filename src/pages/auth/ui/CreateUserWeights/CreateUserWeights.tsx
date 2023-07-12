@@ -1,14 +1,9 @@
 import { FC } from 'react'
-import { Text, View } from 'native-base'
+import { EnterWeightAndGoal } from '@/widgets'
 import { ICreateUserWeightsProps } from './type'
 import { useCreateUserWeights } from './useCreateUserWeights'
 
-export const CreateUserWeights: FC<ICreateUserWeightsProps> = ({ children }) => {
+export const CreateUserWeights: FC<ICreateUserWeightsProps> = () => {
     const {} = useCreateUserWeights()
-    return (
-        <View>
-            <Text>CreateUserWeights</Text>
-            {children}
-        </View>
-    )
+    return <EnterWeightAndGoal />
 }

@@ -9,6 +9,7 @@ export const CreateUserSteps: FC<ICreateUserStepsProps> = ({ children }) => {
     const { handleRegisterUser } = useCreateUserSteps()
     return (
         <WithStepController
+            height="full"
             nextStepLabel={
                 <View>
                     <Text color="white">{AuthConst.CONFIRM}</Text>

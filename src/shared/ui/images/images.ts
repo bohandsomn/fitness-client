@@ -19,3 +19,28 @@ export const MaleLocalImage = createLocalImage({
     source: require('@/shared/assets/images/male.webp'),
     alt: 'Male',
 })
+
+export const BeginnerLocalImage = createLocalImage({
+    source: require('@/shared/assets/images/beginner.webp'),
+    alt: 'Beginner',
+})
+
+export const IntermediateLocalImage = createLocalImage({
+    source: require('@/shared/assets/images/intermediate.webp'),
+    alt: 'Intermediate',
+})
+
+export const AdvancedLocalImage = createLocalImage({
+    source: require('@/shared/assets/images/advanced.webp'),
+    alt: 'Advanced',
+})
+
+export const CurrentWeightLocalImage = createLocalImage({
+    source: require('@/shared/assets/images/current-weight.webp'),
+    alt: 'Current weight',
+})
+
+export const GoalWeightLocalImage = createLocalImage({
+    source: require('@/shared/assets/images/goal-weight.webp'),
+    alt: 'Goal weight',
+})

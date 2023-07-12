@@ -26,8 +26,8 @@ export const useCreateUserStateUpdate = (): IUseCreateUserStateUpdateResult => {
     const changeWeight = useCallback((weight: number) => {
         update({ weight })
     }, [update])
-    const changeGoalWeight = useCallback((weight: number) => {
-        update({ weight })
+    const changeGoalWeight = useCallback((goalWeight: number) => {
+        update({ goalWeight })
     }, [update])
     const changeHeight = useCallback((height: number) => {
         update({ height })

@@ -1,5 +1,3 @@
-import { PropsWithChildren } from 'react'
-
-export interface ICreateUserHeightProps extends PropsWithChildren {
+export interface ICreateUserHeightProps {
 
 }

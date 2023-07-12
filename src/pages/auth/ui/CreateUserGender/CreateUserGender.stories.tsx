@@ -8,9 +8,7 @@ const CreateUserGenderMeta = {
     decorators: [
         (Story: FC) => (
             <CreateUserProvider>
-                <SelectGenderProvider>
-                    <Story />
-                </SelectGenderProvider>
+                <Story />
             </CreateUserProvider>
         ),
     ],
