@@ -36,6 +36,11 @@ export const theme = extendTheme({
                     borderRadius: '100px',
                 }
             },
+        },
+        Text: {
+            baseStyle: {
+                fontFamily: 'Roboto',
+            }
         }
     }
 })
