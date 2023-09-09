@@ -1,8 +1,14 @@
 import { FC } from 'react'
 import { initialPage, pages } from '@/pages'
-import { AutoLogInProvider, StoreProvider, WelcomeProvider } from '@/entities'
-import { NavigationProvider, Navigator, UiProvider } from '@/shared'
+import { StoreProvider, WelcomeProvider } from '@/entities'
+import {
+    FetchingProvider,
+    NavigationProvider,
+    Navigator,
+    UiProvider,
+} from '@/shared'
 import { processPages } from '@/processes'
+import { InitialFetchProvider } from '../InitialFetch'
 
 export const AppProvider: FC = () => {
     return (
@@ -10,12 +16,14 @@ export const AppProvider: FC = () => {
             <UiProvider>
                 <NavigationProvider>
                     <WelcomeProvider>
-                        <AutoLogInProvider>
-                            <Navigator
-                                pages={[...pages, ...processPages]}
-                                initialPage={initialPage}
-                            />
-                        </AutoLogInProvider>
+                        <InitialFetchProvider>
+                            <FetchingProvider>
+                                <Navigator
+                                    pages={[...pages, ...processPages]}
+                                    initialPage={initialPage}
+                                />
+                            </FetchingProvider>
+                        </InitialFetchProvider>
                     </WelcomeProvider>
                 </NavigationProvider>
             </UiProvider>

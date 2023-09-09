@@ -8,7 +8,7 @@ export class Refresher implements IRefresher {
     private isRefreshed = false
 
     constructor(
-        private readonly storage: IStorage,
+        private readonly storage: IStorage<string>,
     ) { }
 
     private async refresh(): Promise<string | undefined> {
@@ -43,6 +43,7 @@ export class Refresher implements IRefresher {
     }
 
     async responseOnRejected(network: AxiosInstance, error: unknown) {
+        console.log((error as AxiosError).toJSON())
         try {
             if (!(error instanceof AxiosError)) {
                 throw error

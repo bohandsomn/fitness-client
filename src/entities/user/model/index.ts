@@ -1,2 +1,2 @@
-export * from './asyncThunk'
-export * from './slice'
+export * from './useUserModel'
+export { userReducer } from './slice'

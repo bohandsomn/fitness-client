@@ -9,16 +9,28 @@ export const AppButton: FC<IAppButton> = ({
     isWide = false,
     ...props
 }) => {
-    const {} = useAppButton()
+    const {
+        backgroundColor,
+        textColor,
+        alignSelf,
+        borderWidth,
+        borderStyle,
+        paddingX,
+        paddingY,
+    } = useAppButton(isDark, isWide)
     return (
         <Button
-            backgroundColor={isDark ? 'black' : 'white'}
-            alignSelf={isWide ? null : 'flex-start'}
-            borderWidth={isDark ? null : 1}
-            borderStyle={isDark ? null : 'solid'}
+            backgroundColor={backgroundColor}
+            alignSelf={alignSelf}
+            borderWidth={borderWidth}
+            borderStyle={borderStyle}
+            paddingTop={paddingY}
+            paddingBottom={paddingY}
+            paddingLeft={paddingX}
+            paddingRight={paddingX}
             {...props}
         >
-            <Text color={isDark ? 'white' : 'black'}>{children}</Text>
+            <Text color={textColor}>{children}</Text>
         </Button>
     )
 }

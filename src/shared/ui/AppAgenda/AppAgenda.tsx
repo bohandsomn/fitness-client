@@ -10,24 +10,54 @@ export const AppAgenda: FC<IAppAgendaProps> = ({
     minDate,
     maxDate,
     customHeader,
+    height,
     children,
 }) => {
-    const { onDayPress, theme, markedDates, items } = useAppAgenda({
+    const {
+        onDayPress,
+        theme,
+        markedDates,
+        items,
+        style,
+        borderBottomLeftRadius,
+        borderBottomRightRadius,
+        borderTopLeftRadius,
+        borderTopRightRadius,
+    } = useAppAgenda({
         currentDate,
         onChangeCurrentDate,
     })
     return (
-        <View style={{ height: 600 }}>
+        <View
+            height={height}
+            backgroundColor={theme.backgroundColor}
+            borderBottomLeftRadius={borderBottomLeftRadius}
+            borderBottomRightRadius={borderBottomRightRadius}
+            borderTopLeftRadius={borderTopLeftRadius}
+            borderTopRightRadius={borderTopRightRadius}
+        >
+            <View
+                width="full"
+                paddingTop="16px"
+                paddingLeft="16px"
+                paddingRight="16px"
+            >
+                {customHeader}
+            </View>
             <Agenda
                 current={currentDate}
                 onDayPress={onDayPress}
                 markedDates={markedDates}
                 minDate={minDate}
                 maxDate={maxDate}
-                customHeader={customHeader}
                 theme={theme}
                 items={items}
-                renderItem={() => <>{children}</>}
+                style={style}
+                renderItem={() => (
+                    <View backgroundColor={theme.backgroundColor}>
+                        {children}
+                    </View>
+                )}
                 renderDay={() => <></>}
             />
         </View>

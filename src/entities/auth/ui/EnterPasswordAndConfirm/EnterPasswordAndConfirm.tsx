@@ -9,9 +9,9 @@ export const EnterPasswordAndConfirm: FC<IEnterPasswordAndConfirmProps> = ({
     passwordField,
     confirmField,
 }) => {
-    const {} = useEnterPasswordAndConfirm()
+    const { header } = useEnterPasswordAndConfirm()
     return (
-        <CreateUserContainer header={AuthConst.CREATE_A_PASSWORD}>
+        <CreateUserContainer header={header}>
             <View marginTop="16px">{passwordField}</View>
             <View marginTop="16px" marginBottom="254px">
                 {confirmField}

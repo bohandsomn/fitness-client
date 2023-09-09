@@ -1,3 +1,4 @@
+import { AppDate } from '@/shared/lib'
 import { CreateUserContext, RegisterDto } from '../dto'
 
 export function createUserContextToRegister({
@@ -35,9 +36,9 @@ export function createUserContextToRegister({
         height,
         weight,
         goalWeight,
-        goalDate: new Date(goalDate),
+        goalDate: new AppDate(goalDate),
         gender,
-        birthday: new Date(birthday),
+        birthday: new AppDate(birthday),
         password,
     }
 }

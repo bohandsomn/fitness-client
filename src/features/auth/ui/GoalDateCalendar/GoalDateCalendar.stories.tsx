@@ -3,7 +3,7 @@ import { GoalDateCalendar } from './GoalDateCalendar'
 import { CreateUserProvider } from '@/entities'
 
 const GoalDateCalendarMeta = {
-    title: 'GoalDateCalendar',
+    title: 'Features/Auth/GoalDateCalendar',
     component: GoalDateCalendar,
     decorators: [
         (Story: FC) => (

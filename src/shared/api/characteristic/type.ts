@@ -3,5 +3,5 @@ import { CharacteristicPreviewDto, GetCharacteristicDTO, GetCharacteristicsByExe
 export interface ICharacteristicApi {
     getCharacteristic(dto: GetCharacteristicDTO): Promise<CharacteristicPreviewDto>
     getCharacteristics(): Promise<CharacteristicPreviewDto[]>
-    getCharacteristicsByExercise(dto: GetCharacteristicsByExerciseDTO): Promise<CharacteristicPreviewDto>
+    getCharacteristicsByExercise(dto: GetCharacteristicsByExerciseDTO): Promise<CharacteristicPreviewDto[]>
 }

@@ -1,14 +1,14 @@
 import { FC } from 'react'
 import { Text } from 'native-base'
-import { AppButton, AuthConst } from '@/shared'
+import { AppButton } from '@/shared'
 import { ILogInProps } from './type'
 import { useLogIn } from './useLogIn'
 
 export const LogIn: FC<ILogInProps> = () => {
-    const { handlePress } = useLogIn()
+    const { handlePress, header } = useLogIn()
     return (
         <AppButton isWide isDark onPress={handlePress}>
-            <Text>{AuthConst.LOG_IN}</Text>
+            <Text>{header}</Text>
         </AppButton>
     )
 }

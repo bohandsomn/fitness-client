@@ -1,8 +1,8 @@
 export function isLength(data: string | number, min?: number, max?: number): boolean {
     if (typeof data === 'string') {
-        if (min && data.length < min) {
+        if (min && data.trim().length < min) {
             return false
-        } else if (max && data.length > max) {
+        } else if (max && data.trim().length > max) {
             return false
         }
     } else {

@@ -1,9 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { userReducer } from '../user'
+import { bodyPartReducer, typeReducer } from '../characteristic'
 
 const store = configureStore({
     reducer: {
-        user: userReducer
+        user: userReducer,
+        bodyPart: bodyPartReducer,
+        type: typeReducer,
     }
 })
 

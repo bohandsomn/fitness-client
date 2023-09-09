@@ -1,14 +1,13 @@
 import { FC } from 'react'
-import { Text, View } from 'native-base'
+import { View } from 'native-base'
 import { IChooseGoalDateProps } from './type'
 import { useChooseGoalDate } from './useChooseGoalDate'
 import { CreateUserContainer } from '../CreateUserContainer'
-import { AuthConst } from '@/shared'
 
 export const ChooseGoalDate: FC<IChooseGoalDateProps> = ({ calendar }) => {
-    const {} = useChooseGoalDate()
+    const { header } = useChooseGoalDate()
     return (
-        <CreateUserContainer header={AuthConst.CHOOSE_GOAL_BIRTH}>
+        <CreateUserContainer header={header}>
             <View marginTop="16px">{calendar}</View>
         </CreateUserContainer>
     )

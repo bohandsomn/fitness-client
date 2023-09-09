@@ -44,3 +44,8 @@ export const GoalWeightLocalImage = createLocalImage({
     source: require('@/shared/assets/images/goal-weight.webp'),
     alt: 'Goal weight',
 })
+
+export const EmptyListLocalImage = createLocalImage({
+    source: require('@/shared/assets/images/empty-list.webp'),
+    alt: 'Empty list',
+})

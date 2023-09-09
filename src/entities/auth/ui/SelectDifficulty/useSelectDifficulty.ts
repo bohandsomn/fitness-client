@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useSelectDifficultyStateSelector, useSelectDifficultyStateUpdate } from '@/entities/user'
+import { AuthConst, UserDifficulty } from '@/shared'
 import { ISelectDifficultyProps } from './type'
-import { UserDifficulty } from '@/shared'
 
 export const useSelectDifficulty = ({
     onChangeDifficulty,
@@ -13,9 +13,11 @@ export const useSelectDifficulty = ({
         select(difficulty)
         onChangeDifficulty?.(difficulty)
     }, [select, onChangeDifficulty])
+    const header = AuthConst.SELECT_YOUR_DIFFICULTY
     return {
         difficulty,
         options,
         handleChangeDifficulty,
+        header,
     }
 }

@@ -1,3 +1,8 @@
+import { AuthConst } from '@/shared'
+
 export const useLogIn = () => {
-    return {}
+    const question = AuthConst.DO_NOT_HAVE_AN_ACCOUNT
+    return {
+        question,
+    }
 }

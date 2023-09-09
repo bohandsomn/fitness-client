@@ -13,16 +13,16 @@ export const SelectGenderWrapper: FC<ISelectGenderWrapperProps> = ({
         <View
             borderWidth="1px"
             borderStyle="solid"
-            borderRadius="10px"
+            borderRadius="12px"
             padding="8px"
+            paddingBottom="16px"
             marginTop="24px"
-            marginBottom="161px"
         >
-            <View marginBottom="8px">
+            <View marginBottom="18px">
                 {value === UserGender.MALE ? (
-                    <MaleLocalImage borderRadius="10px" />
+                    <MaleLocalImage borderRadius="12px" />
                 ) : (
-                    <FemaleLocalImage borderRadius="10px" />
+                    <FemaleLocalImage borderRadius="12px" />
                 )}
             </View>
             <View>{children}</View>

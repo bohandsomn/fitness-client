@@ -7,10 +7,8 @@ export const Container: FC<IContainer> = ({ children }) => {
     const {} = useContainer()
     return (
         <View
-            height="full"
             paddingTop="8px"
-            paddingRight="16px"
-            paddingLeft="16px"
+            paddingX="16px"
             paddingBottom="32px"
             backgroundColor="white"
         >

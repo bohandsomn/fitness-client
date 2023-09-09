@@ -4,6 +4,7 @@ import { HttpBuilder, INetworkHttp } from '../../network'
 import { RelativePath } from '../constants'
 import { ValidationErrorResponseDto, ExceptionErrorResponseDto } from '../dto'
 import { GetUserHistoryDto, HistoryDto, PushHistoryDto } from './dto'
+import { mapHistoryDtoToQuery } from './mapper/mapHistoryDtoToQuery'
 
 class HistoryApi implements IHistoryApi {
     constructor(
@@ -18,9 +19,11 @@ class HistoryApi implements IHistoryApi {
     }
 
     async getUserHistory(dto: GetUserHistoryDto): Promise<HistoryDto | ValidationErrorResponseDto<'date'> | ExceptionErrorResponseDto> {
+        const query = mapHistoryDtoToQuery(dto)
         return this.http.get({
-            body: dto,
-            relativePath: ''
+            body: null,
+            relativePath: '',
+            query,
         })
     }
 }

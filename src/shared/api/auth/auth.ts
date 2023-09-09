@@ -59,9 +59,17 @@ const authWithRefresh = new AuthApi(
         .build()
 )
 
+const authWithCookies = new AuthApi(
+    new HttpBuilder()
+        .setBaseURL(apiUrl)
+        .setRelativePath(RelativePath.AUTH)
+        .setSendCookies(true)
+        .build()
+)
+
 export const authApi: IAuthApi = {
     register: authWithoutRefresh.register.bind(authWithoutRefresh),
     logIn: authWithoutRefresh.logIn.bind(authWithoutRefresh),
     autoLogIn: authWithRefresh.autoLogIn.bind(authWithRefresh),
-    logOut: authWithoutRefresh.logOut.bind(authWithoutRefresh),
+    logOut: authWithCookies.logOut.bind(authWithCookies),
 }

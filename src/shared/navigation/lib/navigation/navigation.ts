@@ -16,7 +16,7 @@ export class Navigation<Route extends string> implements INavigation<Route> {
     ) { }
 
     goTo(route: string): void
-    goTo(route: string, params: object): void
+    goTo(route: string, params: Record<string, unknown>): void
     goTo(route: unknown, params?: unknown): void {
         if (typeof route !== 'string') {
             throw new Exception(`Route ${route} is not a string`)
@@ -42,7 +42,7 @@ export class Navigation<Route extends string> implements INavigation<Route> {
         }
     }
 
-    updateParams(params: object): void {
+    updateParams(params: Record<string, unknown>): void {
         this.navigation.setParams(params)
     }
 }

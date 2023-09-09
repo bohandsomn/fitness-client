@@ -1,16 +1,16 @@
 import { FC } from 'react'
-import { AppInput, AuthConst } from '@/shared'
+import { AppInput } from '@/shared'
 import { IEmailCreateUserFieldProps } from './type'
 import { useEmailCreateUserField } from './useEmailCreateUserField'
 
 export const EmailCreateUserField: FC<IEmailCreateUserFieldProps> = () => {
-    const { email, changeEmail, rules } = useEmailCreateUserField()
+    const { email, changeEmail, rules, placeholder } = useEmailCreateUserField()
     return (
         <AppInput
             value={email}
             onChangeText={changeEmail}
             rules={rules}
-            placeholder={AuthConst.EMAIL}
+            placeholder={placeholder}
             type="text"
         />
     )

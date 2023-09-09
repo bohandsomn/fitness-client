@@ -1,4 +1,5 @@
-import { PropsWithChildren, ReactNode } from 'react'
+import { PropsWithChildren, ReactElement } from 'react'
+import { IViewProps } from 'native-base/lib/typescript/components/basic/View/types'
 import { LocaleDate } from '../../lib'
 
 export interface IAppAgendaProps extends PropsWithChildren {
@@ -6,5 +7,6 @@ export interface IAppAgendaProps extends PropsWithChildren {
     onChangeCurrentDate: (date: LocaleDate) => void
     minDate?: LocaleDate
     maxDate?: LocaleDate
-    customHeader?: ReactNode
+    customHeader?: ReactElement
+    height?: IViewProps['height']
 }

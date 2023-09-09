@@ -1,3 +1,8 @@
+import { AuthConst } from '@/shared'
+
 export const useChooseBirthDate = () => {
-    return {}
+    const header = AuthConst.CHOOSE_DATE_BIRTH
+    return {
+        header,
+    }
 }

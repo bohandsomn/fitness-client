@@ -21,14 +21,14 @@ export const AppRadio: FC<IAppRadioProps> = ({
                 Parent ? (
                     <Parent key={privateValue} value={privateValue}>
                         <Radio value={privateValue} colorScheme="black">
-                            <Text marginLeft="12px" fontSize="14px" bold>
+                            <Text marginLeft="12px" bold>
                                 {publicValue}
                             </Text>
                         </Radio>
                     </Parent>
                 ) : (
                     <Radio key={privateValue} value={privateValue}>
-                        <Text marginLeft="12px" fontSize="14px" bold>
+                        <Text marginLeft="12px" bold>
                             {publicValue}
                         </Text>
                     </Radio>

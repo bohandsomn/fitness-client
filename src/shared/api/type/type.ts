@@ -22,7 +22,7 @@ class TypeApi implements ICharacteristicApi {
         })
     }
 
-    async getCharacteristicsByExercise(dto: GetCharacteristicsByExerciseDTO): Promise<CharacteristicPreviewDto> {
+    async getCharacteristicsByExercise(dto: GetCharacteristicsByExerciseDTO): Promise<CharacteristicPreviewDto[]> {
         return this.http.get({
             body: null,
             relativePath: ['exercise', dto.exerciseId.toString()],

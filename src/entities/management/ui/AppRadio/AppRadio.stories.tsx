@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { View, Text } from 'native-base'
-import { SelectGenderProvider } from '@/entities'
+import { ISelectOption, mockOptions } from '@/entities'
 import { AppRadio } from './AppRadio'
 import { IParentAppRadioProps } from './type'
 import { FemaleLocalImage, MaleLocalImage, UserGender } from '@/shared'
@@ -13,7 +13,11 @@ const AppRadioMeta = {
 
 export default AppRadioMeta
 
-export const Basic = {}
+export const Basic = {
+    args: {
+        options: [...mockOptions],
+    },
+}
 
 export const WithParent = {
     args: {
@@ -38,5 +42,6 @@ export const WithParent = {
         },
         flexDirection: 'row',
         justifyContent: 'space-evenly',
+        options: [...mockOptions],
     },
 }

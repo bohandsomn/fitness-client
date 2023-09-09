@@ -1,14 +1,14 @@
 import { FC } from 'react'
-import { AppLink, AuthConst, PageNames } from '@/shared'
+import { Text } from 'native-base'
+import { AppLink, PageNames } from '@/shared'
 import { ICreateAccountLinkProps } from './type'
 import { useCreateAccountLink } from './useCreateAccountLink'
-import { Text } from 'native-base'
 
 export const CreateAccountLink: FC<ICreateAccountLinkProps> = () => {
-    const {} = useCreateAccountLink()
+    const { header } = useCreateAccountLink()
     return (
-        <AppLink to={`/${PageNames.CREATE_ACCOUNT}` as PageNames}>
-            <Text bold>{AuthConst.CREATE_AN_ACCOUNT}</Text>
+        <AppLink to={`/${PageNames.CREATE_ACCOUNT}`}>
+            <Text bold>{header}</Text>
         </AppLink>
     )
 }

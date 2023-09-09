@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useSelectGenderStateSelector, useSelectGenderStateUpdate } from '@/entities'
+import { AuthConst, UserGender } from '@/shared'
 import { ISelectGenderProps } from './type'
-import { UserGender } from '@/shared'
 
 export const useSelectGender = ({
     onChangeGender
@@ -13,9 +13,11 @@ export const useSelectGender = ({
         select(gender)
         onChangeGender?.(gender)
     }, [select, onChangeGender])
+    const header = AuthConst.SELECT_YOUR_GENDER
     return {
         gender,
         options,
         handleChangeGender,
+        header,
     }
 }

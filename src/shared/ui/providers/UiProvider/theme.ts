@@ -1,14 +1,16 @@
-import { extendTheme } from 'native-base'
+import { Theme, extendTheme } from 'native-base'
 
 export const theme = extendTheme({
+    dark: false,
     colors: {
-        main: '#202020',
-        secondary: '#C2C7CC',
-        mainBackgroundColor: '#FFFFFF',
-        secondaryBackgroundColor: '#202020',
-        modal: '#D9D9D9',
-        list: '#EBEBEB',
-        tab: '#BDBDBD',
+        primary: '#151044',
+        secondary: '#CDD6FF',
+        tertiary: '#DDDFE5',
+        accent: '#DFF892',
+        bgWhite: '#EBEBEB',
+        white: '#FFFFFF',
+        disable: '#A19FB7',
+        black: '#202020',
     },
     fontConfig: {
         Roboto: {
@@ -23,24 +25,16 @@ export const theme = extendTheme({
     },
     components: {
         Button: {
-            baseStyle: ({ colorMode }: any) => {
-                return {
-                    color: colorMode === 'light'
-                        ? 'main'
-                        : 'secondary',
-                    backgroundColor: colorMode === 'light'
-                        ? 'mainBackgroundColor'
-                        : 'secondaryBackgroundColor',
-                    fontWeight: '500',
-                    padding: '10px 24px',
-                    borderRadius: '100px',
-                }
-            },
+            baseStyle: {
+                fontWeight: '500',
+                borderRadius: '100px',
+            }
         },
         Text: {
             baseStyle: {
                 fontFamily: 'Roboto',
+                color: 'primary',
             }
         }
     }
-})
+}) satisfies Theme

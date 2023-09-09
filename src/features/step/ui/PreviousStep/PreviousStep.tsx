@@ -1,15 +1,13 @@
 import { FC } from 'react'
-import { AppButton, StepConst } from '@/shared'
+import { AppButton } from '@/shared'
 import { IPreviousStepProps } from './type'
 import { usePreviousStep } from './usePreviousStep'
 
-export const PreviousStep: FC<IPreviousStepProps> = ({
-    children = StepConst.PREVIOUS_STEP,
-}) => {
-    const { handlePress, isStart } = usePreviousStep()
+export const PreviousStep: FC<IPreviousStepProps> = ({ children }) => {
+    const { handlePress, isStart, defaultChildren } = usePreviousStep()
     return (
         <AppButton isDisabled={isStart} onPress={handlePress}>
-            {children}
+            {children || defaultChildren}
         </AppButton>
     )
 }

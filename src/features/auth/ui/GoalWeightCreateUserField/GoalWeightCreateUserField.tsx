@@ -1,21 +1,21 @@
 import { FC } from 'react'
-import { AppNumberInput, AuthConst } from '@/shared'
+import { AppNumberInput } from '@/shared'
 import { IGoalWeightCreateUserFieldProps } from './type'
 import { useGoalWeightCreateUserField } from './useGoalWeightCreateUserField'
 
 export const GoalWeightCreateUserField: FC<
     IGoalWeightCreateUserFieldProps
 > = () => {
-    const { goalWeight, changeGoalWeight, rules } =
+    const { goalWeight, changeGoalWeight, rules, placeholder, metric } =
         useGoalWeightCreateUserField()
     return (
         <AppNumberInput
             value={goalWeight}
             onChangeText={changeGoalWeight}
             rules={rules}
-            placeholder={AuthConst.DOUBLE_ZERO}
+            placeholder={placeholder}
             min="1"
-            rightText={AuthConst.KG}
+            rightText={metric}
         />
     )
 }

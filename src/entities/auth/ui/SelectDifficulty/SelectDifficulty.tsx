@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import { AppRadio } from '@/entities/management'
-import { AuthConst } from '@/shared'
 import { ISelectDifficultyProps } from './type'
 import { useSelectDifficulty } from './useSelectDifficulty'
 import { CreateUserContainer } from '../CreateUserContainer'
@@ -9,11 +8,10 @@ import { SelectDifficultyWrapper } from '../SelectDifficultyWrapper'
 export const SelectDifficulty: FC<ISelectDifficultyProps> = ({
     onChangeDifficulty,
 }) => {
-    const { difficulty, options, handleChangeDifficulty } = useSelectDifficulty(
-        { onChangeDifficulty },
-    )
+    const { difficulty, options, handleChangeDifficulty, header } =
+        useSelectDifficulty({ onChangeDifficulty })
     return (
-        <CreateUserContainer header={AuthConst.SELECT_YOUR_DIFFICULTY}>
+        <CreateUserContainer header={header}>
             <AppRadio
                 name="difficulty"
                 Parent={SelectDifficultyWrapper}

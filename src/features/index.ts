@@ -1,2 +1,6 @@
 export * from './auth'
 export * from './step'
+export * from './calories'
+export * from './footer'
+export * from './error'
+export * from './set'

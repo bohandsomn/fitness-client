@@ -1,12 +1,10 @@
-import { useEffect, useMemo } from 'react'
-import { autoLogInUserAction, useAppDispatch, useAppSelector } from '@/entities'
-import { NotificationType, PageNames, errorAdapter, useNavigation, useNotification, welcomeBooleanStorage } from '@/shared'
-import { IAutoLogInOptimizedContext } from './type'
+import { useEffect } from 'react'
+import { useUserModel } from '@/entities'
+import { NotificationType, PageNames, errorAdapter, useAppNavigation, useNotification, welcomeBooleanStorage } from '@/shared'
 
-export const useInitialAutoLogIn = (): IAutoLogInOptimizedContext => {
-    const user = useAppSelector((state) => state.user)
-    const navigation = useNavigation()
-    const dispatch = useAppDispatch()
+export const useInitialAutoLogIn = () => {
+    const { user, autoLogInUser } = useUserModel()
+    const navigation = useAppNavigation()
     const notification = useNotification()
 
     useEffect(() => {
@@ -34,7 +32,7 @@ export const useInitialAutoLogIn = (): IAutoLogInOptimizedContext => {
     }, [user])
 
     useEffect(() => {
-        dispatch(autoLogInUserAction())
+        autoLogInUser()
     }, [])
 
     useEffect(() => {
@@ -43,6 +41,4 @@ export const useInitialAutoLogIn = (): IAutoLogInOptimizedContext => {
             notification.broadcast(errors, { type: NotificationType.FAIL })
         }
     }, [user])
-
-    return useMemo(() => ({}), [])
 }

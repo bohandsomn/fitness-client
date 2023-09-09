@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { View, FormControl, Text } from 'native-base'
 import { ILogInProps } from './type'
 import { useLogIn } from './useLogIn'
-import { AuthConst, LogInLocalImage } from '@/shared'
+import { LogInLocalImage } from '@/shared'
 
 export const LogIn: FC<ILogInProps> = ({
     emailField,
@@ -10,7 +10,7 @@ export const LogIn: FC<ILogInProps> = ({
     logInSubmitButton,
     createAccountLink,
 }) => {
-    const {} = useLogIn()
+    const { question } = useLogIn()
     return (
         <FormControl>
             <LogInLocalImage marginLeft="auto" marginRight="auto" />
@@ -19,7 +19,7 @@ export const LogIn: FC<ILogInProps> = ({
             <View marginTop="112px">{logInSubmitButton}</View>
             <View marginTop="16px">
                 <Text>
-                    {AuthConst.DO_NOT_HAVE_AN_ACCOUNT} {createAccountLink}
+                    {question} {createAccountLink}
                 </Text>
             </View>
         </FormControl>

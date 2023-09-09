@@ -4,6 +4,7 @@ export class SetDto {
         public readonly name: string,
         public readonly description: string,
         public readonly demonstration: string,
-        public readonly calories: number
+        public readonly calories: number,
+        public readonly isOwner: boolean,
     ) { }
 }

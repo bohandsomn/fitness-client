@@ -30,4 +30,8 @@ export enum AuthException {
     IS_NOT_POSITIVE_WEIGHT = 'The weight must be greater than zero',
     IS_GOAL_WEIGHT = 'The goal weight must be less than current weight',
     IS_HEIGHT = 'The height must be greater than zero',
+    IS_DIFFICULTY = 'Select the difficulty',
+    IS_GENDER = 'Select the gender',
+    IS_GOAL_DATE = 'Select the goal date',
+    IS_BIRTH_DATE = 'Select the birth date',
 }

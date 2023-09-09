@@ -1,3 +1,8 @@
+import { AuthConst } from '@/shared'
+
 export const useChooseGoalDate = () => {
-    return {}
+    const header = AuthConst.CHOOSE_GOAL_BIRTH
+    return {
+        header,
+    }
 }

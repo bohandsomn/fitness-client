@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { userApi, authApi, RegisterDto, ValidationErrorResponseDto, ExceptionErrorResponseDto, UserPayloadDto, LogInDto, UpdateUserDto } from '@/shared'
+import { userApi, authApi, RegisterDto, ValidationErrorResponseDto, ExceptionErrorResponseDto, UserPayloadDto, LogInDto, UpdateUserDto, CreateUserContext } from '@/shared'
 import { UserTypePrefix } from './typePrefix'
 
 type RejectWithValue = ReturnType<Parameters<Parameters<typeof createAsyncThunk>[1]>[1]['rejectWithValue']>
 
 export const registerUserAction = createAsyncThunk(
     UserTypePrefix.REGISTER,
-    async (dto: RegisterDto, thunkAPI): Promise<UserPayloadDto | RejectWithValue> => {
+    async (dto: CreateUserContext, thunkAPI): Promise<UserPayloadDto | RejectWithValue> => {
         const response = await authApi.register(dto)
         if (
             ValidationErrorResponseDto.isValidationErrorResponse<keyof RegisterDto>(response) ||

@@ -7,7 +7,8 @@ export const StepProgress: FC<IStepProgressProps> = ({
     isShowProgressInNumbers = false,
     rightElement,
 }) => {
-    const { maxStep, minStep, step } = useStepProgress()
+    const { maxStep, minStep, step, filledTrack, backgroundColor } =
+        useStepProgress()
     return (
         <View
             flexDirection="row"
@@ -15,14 +16,10 @@ export const StepProgress: FC<IStepProgressProps> = ({
             justifyContent="space-between"
         >
             <Progress
-                colorScheme="light"
-                width={
-                    isShowProgressInNumbers && rightElement
-                        ? '70%'
-                        : isShowProgressInNumbers || rightElement
-                        ? '85%'
-                        : '100%'
-                }
+                _filledTrack={{ bg: filledTrack }}
+                backgroundColor={backgroundColor}
+                flex="1"
+                marginRight="8px"
                 max={maxStep}
                 min={minStep}
                 value={step}

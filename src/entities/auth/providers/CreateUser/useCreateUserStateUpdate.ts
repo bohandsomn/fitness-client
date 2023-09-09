@@ -12,13 +12,13 @@ export const useCreateUserStateUpdate = (): IUseCreateUserStateUpdateResult => {
         update({ name })
     }, [update])
     const changeEmail = useCallback((email: string) => {
-        update({ email })
+        update({ email: email.trim() })
     }, [update])
     const changePassword = useCallback((password: string) => {
-        update({ password })
+        update({ password: password.trim() })
     }, [update])
     const changeConfirmPassword = useCallback((confirmPassword: string) => {
-        update({ confirmPassword })
+        update({ confirmPassword: confirmPassword.trim() })
     }, [update])
     const selectDifficulty = useCallback((difficulty: UserDifficulty) => {
         update({ difficulty })

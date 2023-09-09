@@ -5,6 +5,7 @@ import { RelativePath } from '../constants'
 import { ValidationErrorResponseDto, ExceptionErrorResponseDto } from '../dto'
 import { AddExerciseToSetDto, CreateSetDto, GetSetDto, RemoveExerciseFromSetDto, SetDto, SetPreviewDto, UpdateSetDto } from './dto'
 import { DeleteSetDto } from './dto/deleteSet.dto'
+import { mapCreateSet, mapUpdateSet } from './mappers'
 
 class SetApi implements ISetApi {
     constructor(
@@ -12,16 +13,26 @@ class SetApi implements ISetApi {
     ) { }
 
     async createSet(dto: CreateSetDto): Promise<SetPreviewDto | ValidationErrorResponseDto<keyof CreateSetDto> | ExceptionErrorResponseDto> {
+        const body = mapCreateSet(dto)
         return this.http.post({
-            body: dto,
+            body,
             relativePath: '',
+            type: 'blob',
+            headers: {
+                "content-type": "multipart/form-data",
+            }
         })
     }
 
     async updateSet(dto: UpdateSetDto): Promise<SetPreviewDto | ValidationErrorResponseDto<keyof UpdateSetDto> | ExceptionErrorResponseDto> {
+        const body = mapUpdateSet(dto)
         return this.http.put({
-            body: dto,
+            body,
             relativePath: '',
+            type: 'blob',
+            headers: {
+                "content-type": "multipart/form-data",
+            }
         })
     }
 

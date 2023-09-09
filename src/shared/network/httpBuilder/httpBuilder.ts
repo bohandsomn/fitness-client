@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, ResponseType } from 'axios'
 import { Http } from '../http'
 import { combinePath } from '../lib'
 import { IRefresher, Refresher } from '../refresher'
-import { LocalStorage, tokenLocalStorage } from '../../storage'
+import { tokenLocalStorage } from '../../storage'
 
 export class HttpBuilder {
     private readonly http: Http

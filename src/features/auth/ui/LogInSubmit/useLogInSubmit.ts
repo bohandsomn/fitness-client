@@ -1,26 +1,27 @@
 import { useCallback, useEffect } from 'react'
-import { logInUserAction, useAppDispatch, useAppSelector, useLogInStateSelector, useLogInStateUpdate } from '@/entities'
-import { IEventPreventDefault, PageNames, useNavigation } from '@/shared'
+import { useLogInStateSelector, useLogInStateUpdate, useUserModel } from '@/entities'
+import { AuthConst, IEventPreventDefault, PageNames, useAppNavigation } from '@/shared'
 
 export const useLogInSubmit = () => {
     const { email, password } = useLogInStateSelector((state) => state)
-    const user = useAppSelector((state) => state.user)
-    const navigation = useNavigation()
-    const dispatch = useAppDispatch()
+    const { user, logInUser } = useUserModel()
+    const navigation = useAppNavigation()
     const { resetEmail, resetPassword } = useLogInStateUpdate()
     const handleSubmit = useCallback((event: IEventPreventDefault) => {
         event.preventDefault()
-        dispatch(logInUserAction({ email, password }))
-    }, [dispatch, email, password])
+        logInUser({ email, password })
+    }, [email, password, logInUser])
     useEffect(() => {
         if (user.data === null || user.isLoading) {
             return
         }
-        navigation.goTo(PageNames.HOME)
+        navigation.goTo(PageNames.TRAININGS)
         resetEmail()
         resetPassword()
     }, [user, resetEmail, resetPassword])
+    const header = AuthConst.LOG_IN
     return {
         handleSubmit,
+        header,
     }
 }

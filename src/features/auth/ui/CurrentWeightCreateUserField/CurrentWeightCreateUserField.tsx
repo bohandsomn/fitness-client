@@ -1,20 +1,21 @@
 import { FC } from 'react'
-import { AppNumberInput, AuthConst } from '@/shared'
+import { AppNumberInput } from '@/shared'
 import { ICurrentWeightCreateUserFieldProps } from './type'
 import { useCurrentWeightCreateUserField } from './useCurrentWeightCreateUserField'
 
 export const CurrentWeightCreateUserField: FC<
     ICurrentWeightCreateUserFieldProps
 > = () => {
-    const { weight, changeWeight, rules } = useCurrentWeightCreateUserField()
+    const { weight, changeWeight, rules, placeholder, metric } =
+        useCurrentWeightCreateUserField()
     return (
         <AppNumberInput
             value={weight}
             onChangeText={changeWeight}
             rules={rules}
-            placeholder={AuthConst.DOUBLE_ZERO}
+            placeholder={placeholder}
             min="1"
-            rightText={AuthConst.KG}
+            rightText={metric}
         />
     )
 }

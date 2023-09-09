@@ -1,7 +1,7 @@
 export interface INavigation<Route extends string> {
     goTo(route: Route): void
-    goTo(route: Route, params: object): void
+    goTo(route: Route, params: Record<string, unknown>): void
     goBack(): void
     goStart(): void
-    updateParams(params: object): void
+    updateParams(params: Record<string, unknown>): void
 }

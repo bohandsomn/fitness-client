@@ -1,5 +1,4 @@
-import { ReactNode } from 'react'
-import { Text, View, useToast } from 'native-base'
+import { useToast } from 'native-base'
 import {
     IBroadcastNotificationOptions,
     IGetColorsDto,
@@ -66,7 +65,7 @@ export class Notification implements INotification {
 
     broadcast(
         messages: string[],
-        options?: Partial<IBroadcastNotificationOptions>
+        options?: Partial<IBroadcastNotificationOptions>,
     ): void {
         const defaultOptions: IBroadcastNotificationOptions = {
             duration: 2000,
@@ -78,13 +77,17 @@ export class Notification implements INotification {
             type: defaultOptions.type,
         })
         messages.map((message, index) => {
-            setTimeout(() => this.toastService.show({
-                description: message,
-                duration: defaultOptions.duration,
-                placement: defaultOptions.placement,
-                color: textColor,
-                backgroundColor: bgColor,
-            }), defaultOptions.duration * index)
+            setTimeout(
+                () =>
+                    this.toastService.show({
+                        description: message,
+                        duration: defaultOptions.duration,
+                        placement: defaultOptions.placement,
+                        color: textColor,
+                        backgroundColor: bgColor,
+                    }),
+                defaultOptions.duration * index,
+            )
         })
     }
 
@@ -95,10 +98,15 @@ export class Notification implements INotification {
     private adaptOptions(message: string): INotificationOptions
     private adaptOptions(
         message: string,
-        options: Partial<INotificationOptionsWithoutMessage>
+        options: Partial<INotificationOptionsWithoutMessage>,
     ): INotificationOptions
-    private adaptOptions(options: Partial<INotificationOptions>): INotificationOptions
-    private adaptOptions(message: unknown, options?: unknown): INotificationOptions {
+    private adaptOptions(
+        options: Partial<INotificationOptions>,
+    ): INotificationOptions
+    private adaptOptions(
+        message: unknown,
+        options?: unknown,
+    ): INotificationOptions {
         const defaultOptions: INotificationOptions = {
             duration: this.options?.duration || 3000,
             message: '',
@@ -126,7 +134,10 @@ export class Notification implements INotification {
         return defaultOptions
     }
 
-    private notify(options: INotificationOptions, type: NotificationType): INotificationId {
+    private notify(
+        options: INotificationOptions,
+        type: NotificationType,
+    ): INotificationId {
         const { textColor, bgColor } = this.getColors({
             type,
         })

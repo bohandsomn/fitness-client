@@ -1,5 +1,10 @@
 import { FC } from 'react'
-import { CreateUserProvider, StepProvider } from '@/entities'
+import {
+    CreateUserProvider,
+    SelectDifficultyProvider,
+    SelectGenderProvider,
+    StepProvider,
+} from '@/entities'
 import { Container } from '@/shared'
 import { ICreateUserProps } from './type'
 import { useCreateUser } from './useCreateUser'
@@ -11,11 +16,15 @@ export const CreateUser: FC<ICreateUserProps> = () => {
     return (
         <CreateUserProvider>
             <StepProvider data={stepInitialData}>
-                <Container>
-                    <CreateUserSteps>
-                        <CreateUserPages />
-                    </CreateUserSteps>
-                </Container>
+                <SelectGenderProvider>
+                    <SelectDifficultyProvider>
+                        <Container>
+                            <CreateUserSteps>
+                                <CreateUserPages />
+                            </CreateUserSteps>
+                        </Container>
+                    </SelectDifficultyProvider>
+                </SelectGenderProvider>
             </StepProvider>
         </CreateUserProvider>
     )

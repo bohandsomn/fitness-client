@@ -1,3 +1,4 @@
+import { ResponseType } from 'axios'
 import { QueryDto } from '../../lib'
 import { HttpMethod } from '../method'
 
@@ -7,4 +8,5 @@ export interface INetworkHttpJsonInput<Body> {
     readonly relativePath: string | string[]
     readonly headers?: Record<string, string>
     readonly query?: QueryDto
+    readonly type?: ResponseType
 }

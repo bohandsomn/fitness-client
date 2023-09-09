@@ -24,7 +24,7 @@ export function createOptimizedContext<T>({
     const Provider: FC<IProviderProps<T>> = ({ initialState, children }) => {
         const store = useMemo<IMiniStore<T>>(
             () => new MiniStore(initialState),
-            [],
+            [initialState],
         )
         return <Context.Provider value={store}>{children}</Context.Provider>
     }

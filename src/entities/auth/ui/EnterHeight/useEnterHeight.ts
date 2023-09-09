@@ -1,3 +1,8 @@
+import { AuthConst } from '@/shared'
+
 export const useEnterHeight = () => {
-    return {}
+    const header = AuthConst.ENTER_HEIGHT
+    return {
+        header,
+    }
 }

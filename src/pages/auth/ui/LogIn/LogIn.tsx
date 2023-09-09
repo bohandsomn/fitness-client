@@ -8,7 +8,7 @@ export const LogIn: FC<ILogInProps> = () => {
     const {} = useLogIn()
     return (
         <Container>
-            <LogInWidget />{' '}
+            <LogInWidget />
         </Container>
     )
 }

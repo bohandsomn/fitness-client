@@ -3,12 +3,7 @@ import { IButtonProps } from 'native-base'
 
 export interface IAppButton extends
     PropsWithChildren,
-    Omit<IButtonProps,
-        'backgroundColor' |
-        'width' |
-        'borderWidth' |
-        'borderStyle' |
-        'children'> {
+    Omit<IButtonProps, 'children'> {
     isWide?: boolean
     isDark?: boolean
 }

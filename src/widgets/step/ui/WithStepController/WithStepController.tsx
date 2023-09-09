@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Row, Text, View } from 'native-base'
+import { Row, View } from 'native-base'
 import { StepProgress } from '@/entities'
 import { PreviousStep, NextStep } from '@/features'
 import { IWithStepControllerProps } from './type'

@@ -3,16 +3,20 @@ import { HttpBuilder, INetworkHttp } from '../../network'
 import { GetProgressInCaloriesDTO, ProgressInCaloriesDTO } from './dto'
 import { apiUrl } from '../../config'
 import { RelativePath } from '../constants'
+import { getProgressInCaloriesDtoToBody } from './mapper'
+import { ExceptionErrorResponseDto } from '../dto'
 
 class ProgressApi implements IProgressApi {
     constructor(
         private readonly http: INetworkHttp,
     ) { }
 
-    async getProgressInCalories(dto: GetProgressInCaloriesDTO): Promise<ProgressInCaloriesDTO[]> {
+    async getProgressInCalories(dto: Partial<GetProgressInCaloriesDTO>): Promise<ProgressInCaloriesDTO[] | ExceptionErrorResponseDto> {
+        const query = getProgressInCaloriesDtoToBody(dto)
         return this.http.get({
-            body: dto,
-            relativePath: ''
+            body: null,
+            relativePath: '',
+            query,
         })
     }
 }
