@@ -1,0 +1,11 @@
+export enum PageNames {
+    WELCOME = 'WELCOME',
+    LOG_IN = 'LOG_IN',
+    CREATE_ACCOUNT = 'CREATE_ACCOUNT',
+    PROGRESS = 'PROGRESS',
+    TRAININGS = 'TRAININGS',
+    DISCOVER = 'DISCOVER',
+    ACCOUNT = 'ACCOUNT',
+    SET = 'SET',
+    TRAINING = 'TRAINING',
+}
